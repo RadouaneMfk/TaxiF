@@ -1783,6 +1783,7 @@ img {
 
 .container {
   display: flex;
+  flex-direction: column;
   position: relative;
   padding: 200px 200px;
 }
@@ -1800,6 +1801,7 @@ img {
   text-decoration: none;
   border: 2px solid #585757;
   border-radius: 50%;
+  margin-left: 120px;
 }
 .container .close i {
   font-size: 1.7rem;
@@ -1808,8 +1810,6 @@ img {
 .container .form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .input-container {
@@ -1889,11 +1889,12 @@ img {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 20px;
+  margin: 25px;
   background: transparent;
   font-family: "Poppins", serif;
   font-style: normal;
   font-weight: 600;
+  margin-right: 150px;
 }
 .photo 
 {
@@ -1932,17 +1933,27 @@ img {
 }
 
 .emergency {
-  background: #adadad;
-  padding: 20px;
+  position: relative;
+  background: #adadad92;
+  padding: 30px;
+  overflow: hidden;
 }
-.emergency .sos {
+.sos {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -10px;
+  margin-right: -5px;
   width: 50px;
   height: 50px;
-  background: #c71b1b;
+  background: #c71b1ba9;
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
   color: #ffff;
 }
 
@@ -1952,16 +1963,448 @@ img {
   font-weight: 500;
   font-style: normal;
   font-size: 10px;
+  margin-top: 20px;
 }
 
 .delete {
+  left: 0;
   font-family: "Poppins", serif;
   font-weight: 500;
   font-style: normal;
+  margin-top: 50px;
 }
 
 .log-out {
   font-family: "Poppins", serif;
   font-weight: 500;
   font-style: normal;
+  margin-top: 20px;
+}
+
+/*** 
+
+====================================================================
+            Select country Page
+====================================================================
+
+***/
+
+
+.ui-wrapper {
+  --width: 100px;
+  --height: 40px;
+  --background: #e6e6e6;
+  --text-color: rgb(73, 73, 73);
+  --border-color: rgb(185, 184, 184);
+  --border-focus-color: rgb(0, 110, 255);
+  --shadow-color: rgba(34, 60, 80, 0.2);
+  --shadow-focus-color: rgba(0, 110, 255, 0.2);
+  --dropdown-button-color: #e6e6e6;
+  --dropdown-button-hover-color: #dad9d9;
+}
+
+.ui-wrapper *,
+.ui-wrapper *::before,
+.ui-wrapper *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: var(--text-color);
+}
+
+.ui-wrapper {
+  width: var(--width);
+  height: var(--height);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid var(--border-color);
+  background-color: var(--background);
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-right: 10px;
+  -webkit-box-shadow: 0px 2px 5px 0px var(--shadow-color);
+  box-shadow: 0px 2px 5px 0px var(--shadow-color);
+  -webkit-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.ui-wrapper>input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  left: 9999px;
+}
+
+.dropdown-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+  border-radius: 9px 0 0 9px;
+  background-color: var(--dropdown-button-color);
+}
+
+.dropdown-container::before {
+  content: "🇩🇪 +49";
+  background-color: lightgray;
+  font-size: 20px;
+  background: none !important;
+}
+
+.dropdown-container::after {
+  content: "";
+  background-image: url(">");
+  width: 12px;
+  height: 12px;
+  background-position: center;
+  background-size: cover;
+  margin-left: 5px;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.select-wrapper {
+  width: var(--width);
+  position: absolute;
+  top: calc(var(--height) + 20px);
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.select-wrapper ul {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0;
+  list-style: none;
+  height: 300px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+.select-wrapper ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.select-wrapper ul li label {
+  width: 100%;
+}
+
+.select-wrapper ul li,
+.select-wrapper ul li * {
+  cursor: pointer;
+}
+
+.select-wrapper ul li:hover {
+  background: lightgray;
+}
+
+.select-wrapper ul li span {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.input-wrapper {
+  width: 100%;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  row-gap: 2px;
+}
+
+.input-wrapper legend {
+  font-size: 11px;
+}
+
+.input-wrapper .textfield {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.input-wrapper .textfield::before {
+  content: "+31";
+  margin-right: 5px;
+  white-space: nowrap;
+}
+
+.input-wrapper .textfield input {
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.invalid-msg {
+  font-size: 12px;
+  position: absolute;
+  color: red;
+  top: 115%;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+/* actions */
+
+#phonenumber:invalid+.invalid-msg {
+  top: 110%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.ui-wrapper:focus-within {
+  border-color: var(--border-focus-color);
+  -webkit-box-shadow: 0px 2px 5px 0px var(--shadow-focus-color);
+  box-shadow: 0px 2px 5px 0px var(--shadow-focus-color);
+}
+
+.dropdown-checkbox:checked~.select-wrapper {
+  top: calc(var(--height) + 5px);
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-checkbox:checked+.dropdown-container::after {
+  rotate: 180deg;
+  translate: 0 -2px;
+}
+
+.ui-wrapper input#Austria:checked~.dropdown-container::before,
+.ui-wrapper input#Austria:checked~.select-wrapper li.Austria {
+  content: "🇦🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Belgium:checked~.dropdown-container::before,
+.ui-wrapper input#Belgium:checked~.select-wrapper li.Belgium {
+  content: "🇧🇪";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Bulgaria:checked~.dropdown-container::before,
+.ui-wrapper input#Bulgaria:checked~.select-wrapper li.Bulgaria {
+  content: "🇧🇬";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Croatia:checked~.dropdown-container::before,
+.ui-wrapper input#Croatia:checked~.select-wrapper li.Croatia {
+  content: "🇭🇷";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Cyprus:checked~.dropdown-container::before,
+.ui-wrapper input#Cyprus:checked~.select-wrapper li.Cyprus {
+  content: "🇨🇾";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Czech:checked~.dropdown-container::before,
+.ui-wrapper input#Czech:checked~.select-wrapper li.Czech {
+  content: "🇨🇿";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Denmark:checked~.dropdown-container::before,
+.ui-wrapper input#Denmark:checked~.select-wrapper li.Denmark {
+  content: "🇩🇰";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Estonia:checked~.dropdown-container::before,
+.ui-wrapper input#Estonia:checked~.select-wrapper li.Estonia {
+  content: "🇪🇪";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Finland:checked~.dropdown-container::before,
+.ui-wrapper input#Finland:checked~.select-wrapper li.Finland {
+  content: "🇫🇮";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#France:checked~.dropdown-container::before,
+.ui-wrapper input#France:checked~.select-wrapper li.France {
+  content: "🇫🇷";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Germany:checked~.dropdown-container::before,
+.ui-wrapper input#Germany:checked~.select-wrapper li.Germany {
+  content: "🇩🇪 +49";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Greece:checked~.dropdown-container::before,
+.ui-wrapper input#Greece:checked~.select-wrapper li.Greece {
+  content: "🇬🇷";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Hungary:checked~.dropdown-container::before,
+.ui-wrapper input#Hungary:checked~.select-wrapper li.Hungary {
+  content: "🇭🇺";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Iceland:checked~.dropdown-container::before,
+.ui-wrapper input#Iceland:checked~.select-wrapper li.Iceland {
+  content: "🇮🇸";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Ireland:checked~.dropdown-container::before,
+.ui-wrapper input#Ireland:checked~.select-wrapper li.Ireland {
+  content: "🇮🇪";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Italy:checked~.dropdown-container::before,
+.ui-wrapper input#Italy:checked~.select-wrapper li.Italy {
+  content: "🇮🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Latvia:checked~.dropdown-container::before,
+.ui-wrapper input#Latvia:checked~.select-wrapper li.Latvia {
+  content: "🇱🇻";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Liechtenstein:checked~.dropdown-container::before,
+.ui-wrapper input#Liechtenstein:checked~.select-wrapper li.Liechtenstein {
+  content: "🇱🇮";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Lithuania:checked~.dropdown-container::before,
+.ui-wrapper input#Lithuania:checked~.select-wrapper li.Lithuania {
+  content: "🇱🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Luxembourg:checked~.dropdown-container::before,
+.ui-wrapper input#Luxembourg:checked~.select-wrapper li.Luxembourg {
+  content: "🇱🇺";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Malta:checked~.dropdown-container::before,
+.ui-wrapper input#Malta:checked~.select-wrapper li.Malta {
+  content: "🇲🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Netherlands:checked~.dropdown-container::before,
+.ui-wrapper input#Netherlands:checked~.select-wrapper li.Netherlands {
+  content: "🇳🇱";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Norway:checked~.dropdown-container::before,
+.ui-wrapper input#Norway:checked~.select-wrapper li.Norway {
+  content: "🇳🇴";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Poland:checked~.dropdown-container::before,
+.ui-wrapper input#Poland:checked~.select-wrapper li.Poland {
+  content: "🇵🇱";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Portugal:checked~.dropdown-container::before,
+.ui-wrapper input#Portugal:checked~.select-wrapper li.Portugal {
+  content: "🇵🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Romania:checked~.dropdown-container::before,
+.ui-wrapper input#Romania:checked~.select-wrapper li.Romania {
+  content: "🇷🇴";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Slovakia:checked~.dropdown-container::before,
+.ui-wrapper input#Slovakia:checked~.select-wrapper li.Slovakia {
+  content: "🇸🇰";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Slovenia:checked~.dropdown-container::before,
+.ui-wrapper input#Slovenia:checked~.select-wrapper li.Slovenia {
+  content: "🇸🇮";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Spain:checked~.dropdown-container::before,
+.ui-wrapper input#Spain:checked~.select-wrapper li.Spain {
+  content: "🇪🇸";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Sweden:checked~.dropdown-container::before,
+.ui-wrapper input#Sweden:checked~.select-wrapper li.Sweden {
+  content: "🇸🇪";
+  background-color: lightgray;
 }
