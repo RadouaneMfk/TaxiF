@@ -1801,7 +1801,7 @@ img {
   text-decoration: none;
   border: 2px solid #585757;
   border-radius: 50%;
-  margin-left: 120px;
+  margin-left: 180px;
 }
 .container .close i {
   font-size: 1.7rem;
@@ -1810,8 +1810,8 @@ img {
 .container .form {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
-
 .input-container {
   position: relative;
   margin: 40px auto;
@@ -1894,7 +1894,7 @@ img {
   font-family: "Poppins", serif;
   font-style: normal;
   font-weight: 600;
-  margin-right: 150px;
+  margin-right: 200px;
 }
 .photo 
 {
@@ -1967,7 +1967,6 @@ img {
 }
 
 .delete {
-  left: 0;
   font-family: "Poppins", serif;
   font-weight: 500;
   font-style: normal;
@@ -2407,4 +2406,63 @@ img {
 .ui-wrapper input#Sweden:checked~.select-wrapper li.Sweden {
   content: "🇸🇪";
   background-color: lightgray;
+}
+
+/*** 
+
+====================================================================
+            promo Page
+====================================================================
+
+***/
+
+.promo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 30px;
+  position: relative;
+  padding: 200px 200px;
+  text-align: left;
+}
+.first {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.promo-container .back {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  border: 2px solid #585757;
+  border-radius: 50%;
+}
+
+.promo-container a, h1{
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none;
+  color: #000;
+}
+
+.promo-container .column {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+}
+.line {
+  width: 100%; /* Full width */
+  height: 2px; /* Line thickness */
+  background-color: #000000; /* Line color */
+  margin: 20px 0; /* Add space above and below the line */
 }
