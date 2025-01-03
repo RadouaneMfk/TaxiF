@@ -2466,6 +2466,7 @@ img {
   background-color: #000000;
   margin: 20px 0;
 }
+
 @media (max-width: 800px)
 {
   .center{
@@ -2473,12 +2474,12 @@ img {
   }
   .container .close{
     position: relative;
-    margin-left: 60px;
+    margin-left: 30px;
     margin-bottom: 50px;
   }
   .save {
     position: absolute;
-    margin-left: 350px;
+    margin-left: 340px;
     margin-top: 30px;
     top: auto;
     right: auto;
@@ -2500,5 +2501,14 @@ img {
   }
   .additional {
     margin-left: 60px;
+  }
+  .ui-wrapper {
+    width: 60px;
+  }
+  .ui-wrapper input#Germany:checked ~ .dropdown-container::before, .ui-wrapper input#Germany:checked ~ .select-wrapper li.Germany {
+    content: "🇩🇪";
+  }
+  .dropdown-container::before{
+    content: "🇩🇪";
   }
 }
