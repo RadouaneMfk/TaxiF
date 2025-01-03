@@ -2461,8 +2461,35 @@ img {
   justify-content: flex-start;
 }
 .line {
-  width: 100%; /* Full width */
-  height: 2px; /* Line thickness */
-  background-color: #000000; /* Line color */
-  margin: 20px 0; /* Add space above and below the line */
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  margin: 20px 0;
+}
+@media (max-width: 954px)
+{
+  .container .close{
+    position: relative;
+    margin-left: 10px;
+    margin-bottom: 50px;
+  }
+  .save {
+    position: absolute;
+    margin-left: 350px;
+    margin-top: 30px;
+    top: auto;
+    right: auto;
+  }
+  .photo {
+    margin-left: 20px;
+  }
+  .drapo {
+    margin-left: 30px;
+  }
+  .emergency .sos{
+    margin-right: 15px;
+  }
+  .additional {
+    margin-left: 30px;
+  }
 }
