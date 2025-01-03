@@ -2466,11 +2466,14 @@ img {
   background-color: #000000;
   margin: 20px 0;
 }
-@media (max-width: 754px)
+@media (max-width: 800px)
 {
+  .center{
+    height: 900px;
+  }
   .container .close{
     position: relative;
-    margin-left: 10px;
+    margin-left: 60px;
     margin-bottom: 50px;
   }
   .save {
@@ -2481,15 +2484,21 @@ img {
     right: auto;
   }
   .photo {
-    margin-left: 20px;
+    margin-left: 60px;
   }
   .drapo {
-    margin-left: 30px;
+    margin-left: 20px;
+  }
+  .phone {
+    margin-left: 40px;
   }
   .emergency .sos{
-    margin-right: 15px;
+    margin-right: 45px;
+  }
+  .emergency h5{
+    margin-left: 45px;
   }
   .additional {
-    margin-left: 30px;
+    margin-left: 60px;
   }
 }
