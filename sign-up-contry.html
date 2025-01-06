@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+	<style>
+		
+.center {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 200px 200px;
+}
+
+.container .close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  border: 2px solid #585757;
+  border-radius: 50%;
+  margin-left: 180px;
+}
+.container .close i {
+  font-size: 1.7rem;
+  color: #000;
+}
+.container .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.input-container {
+  position: relative;
+  margin: 40px auto;
+  width: 300px;
+}
+
+.input-container input[type="text"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: #fabe12;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #fabe12;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+.container .set-point {
+  color: #000;
+  text-decoration: none;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.container .set-point:hover {
+  color: #787777;
+}
+		.ui-wrapper {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+.select-wrapper {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.select-wrapper ul li {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.select-wrapper ul li:hover {
+  background: #f0f0f0;
+}
+
+.select-wrapper ul li span {
+  font-size: 18px;
+}
+
+.invalid-msg {
+  color: red;
+  font-size: 12px;
+  display: none;
+  margin-top: 5px;
+}
+
+
+
+	</style>
+    <title>Select Country</title>
+  </head>
+  <body>
+    <div class="center" style="justify-content: center; align-items: stretch;">
+      <div class="container">
+        <a class="close" href="SignUp.html"><i class="fa-solid fa-xmark"></i></a>
+		<div class="input-container" style="width:100%">
+			<input type="text" id="search" required="" />
+			<label for="input" class="label" style="font-size: 10px;">Search</label>
+			<div class="underline"></div>
+		</div>
+		<div class="ui-wrapper" style="width: 80vw;">
+			<div class="select-wrapper">
+				<ul>
+					<li><label for="Austria"><span>🇦🇹</span> Austria (+43)</label></li>
+					<li><label for="Belgium"><span>🇧🇪</span> Belgium (+32)</label></li>
+					<li><label for="Bulgaria"><span>🇧🇬</span> Bulgaria (+359)</label></li>
+					<li><label for="Croatia"><span>🇭🇷</span> Croatia (+385)</label></li>
+					<li><label for="Cyprus"><span>🇨🇾</span> Cyprus (+357)</label></li>
+					<li><label for="Czech"><span>🇨🇿</span> Czech Republic (+420)</label></li>
+					<li><label for="Denmark"><span>🇩🇰</span> Denmark (+45)</label></li>
+					<li><label for="Estonia"><span>🇪🇪</span> Estonia (+372)</label></li>
+					<li><label for="Finland"><span>🇫🇮</span> Finland (+358)</label></li>
+					<li><label for="France"><span>🇫🇷</span> France (+33)</label></li>
+					<li><label for="Germany"><span>🇩🇪</span> Germany (+49)</label></li>
+					<li><label for="Greece"><span>🇬🇷</span> Greece (+30)</label></li>
+					<li><label for="Hungary"><span>🇭🇺</span> Hungary (+36)</label></li>
+					<li><label for="Iceland"><span>🇮🇸</span> Iceland (+354)</label></li>
+					<li><label for="Ireland"><span>🇮🇪</span> Ireland (+353)</label></li>
+					<li><label for="Italy"><span>🇮🇹</span> Italy (+39)</label></li>
+					<li><label for="Latvia"><span>🇱🇻</span> Latvia (+371)</label></li>
+					<li><label for="Liechtenstein"><span>🇱🇮</span> Liechtenstein (+423)</label></li>
+					<li><label for="Lithuania"><span>🇱🇹</span> Lithuania (+370)</label></li>
+					<li><label for="Luxembourg"><span>🇱🇺</span> Luxembourg (+352)</label></li>
+					<li><label for="Malta"><span>🇲🇹</span> Malta (+356)</label></li>
+					<li><label for="Netherlands"><span>🇳🇱</span> Netherlands (+31)</label></li>
+					<li><label for="Norway"><span>🇳🇴</span> Norway (+47)</label></li>
+					<li><label for="Poland"><span>🇵🇱</span> Poland (+48)</label></li>
+					<li><label for="Portugal"><span>🇵🇹</span> Portugal (+351)</label></li>
+					<li><label for="Romania"><span>🇷🇴</span> Romania (+40)</label></li>
+					<li><label for="Slovakia"><span>🇸🇰</span> Slovakia (+421)</label></li>
+					<li><label for="Slovenia"><span>🇸🇮</span> Slovenia (+386)</label></li>
+					<li><label for="Spain"><span>🇪🇸</span> Spain (+34)</label></li>
+					<li><label for="Sweden"><span>🇸🇪</span> Sweden (+46)</label></li>
+				</ul>
+			</div>
+		</div>
+        </div>
+      </div>
+    </div>
+	<script>
+        const searchInput = document.getElementById('search');
+        const countryList = document.querySelectorAll('.select-wrapper ul li');
+
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            countryList.forEach(li => {
+                const text = li.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    li.style.display = 'flex';
+                } else {
+                    li.style.display = 'none';
+                }
+            });
+        });
+    </script>
+  </body>
+</html>
