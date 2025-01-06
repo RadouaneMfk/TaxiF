@@ -1200,8 +1200,6 @@ img {
 }
 .button:hover {
   background-color: #d49e09;
-}
-.button:hover {
   transform: translateY(-3px);
 }
 
@@ -1774,11 +1772,9 @@ img {
 ***/
 
 .center {
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .container {
@@ -2470,16 +2466,32 @@ img {
 @media (max-width: 800px)
 {
   .center{
+    width: 120vw;
     height: 900px;
+  }
+  .title h1 {
+    font-size: 15px;
+    margin-left: 30px;
+  }
+  .container {
+    margin-right: 80px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  #top {
+    margin-top: -30vh;
+  }
+  #top .close {
+    margin-left: 10px;
   }
   .container .close{
     position: relative;
-    margin-left: 30px;
+    margin-left: 50px;
     margin-bottom: 50px;
   }
   .save {
     position: absolute;
-    margin-left: 340px;
+    margin-left: 320px;
     margin-top: 30px;
     top: auto;
     right: auto;
@@ -2511,4 +2523,114 @@ img {
   .dropdown-container::before{
     content: "🇩🇪";
   }
+}
+
+
+/*** 
+
+====================================================================
+            Sign up Page
+====================================================================
+
+***/
+
+.terms {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 130px;
+}
+.bottom {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 130px;
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  position: fixed;
+  top: 0;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.cyberpunk-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fabe12;
+  border-radius: 5px;
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cyberpunk-checkbox:before {
+  content: "";
+  background-color: #fabe12;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cyberpunk-checkbox:checked:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.cyberpunk-checkbox-label {
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+p {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+.confirm {
+  display: flex;
+  justify-content: center;
+}
+.confirm-button {
+  position: fixed;
+  bottom: 0;
+  width: 60%;
+  margin-bottom: 30px;
+  justify-content: center;
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  background-color: #fabe12;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  border-radius: 10px;
+}
+.confirm-button:hover {
+  background-color: #d49e09;
+  transform: translateY(-3px);
+}
+.confirm-button a {
+  color: #fff;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
 }
